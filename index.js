@@ -189,36 +189,40 @@ let computer = Math.floor(Math.random() * 3);
 //game('rock', computer);
 
 function game(user, computer){
-    const choices = ['rock', 'paper', 'scissors', 'scissors'];
+    const choices = ['rock', 'paper', 'scissors'];
+    let computerChoice = '';
 
-    let computerChoice = choices[computer];
-
-    if(computer=== 'rock') {
-      if(user === 'rock') {
-        return "it's a tie";
-      } else if(user === 'paper') {
-        return "you win!";
+      if(typeof computer === 'number') {
+        computerChoice = choices[computer];
       } else {
-        return "you lose!";
+        computerChoice = computer;
       }
-    } else if(computer === 'paper') {
-      if(user === 'rock') {
-        return "you lose!";
-      } else if(user === 'paper') {
+
+      if(user === computer) {
         return "it's a tie";
       } else {
-        return "you win!";
-      }
-    } else {
-      if(user === 'rock') {
-        return "you win!";
-      } else if (user === 'paper') {
-        return "you lose!";
-      } else {
-        return "it's a tie";
-      }
-    }
+          if(computerChoice=== 'rock') {
+            if(user === 'paper') {
+            return "you win!";
+          } else {
+            return "you lose!";
+          }
+        } else if(computerChoice === 'paper') {
+          if(user === 'rock') {
+            return "you lose!";
+        } else {
+            return "you win!";
+          }
+        } else {
+          if(user === 'rock') {
+            return "you win!";
+        } else {
+            return "you lose!";
+          }
+        }
 
+
+      }
 
 }
   
@@ -321,20 +325,20 @@ Using the vowelCounter function below do the following:
 
 
 function vowelCounter(string) {
-  let lowercaseString = string.toLowerCase();
- 
- let vowelCounter = 0;
- 
- for(let i = 0; i < lowercaseString.length; i++) {
-     let currentLetter = lowercaseString.charAt(i);
-   if(currentLetter === 'a' || currentLetter === 'e' || currentLetter === 'i' || currentLetter === 'o' || currentLetter === 'u') {
-     vowelCounter++;
-   } else {
-     console.log('not a vowel!');
-   }
- }
- 
- return vowelCounter;
+   let lowercaseString = string.toLowerCase();
+  
+  let vowelCounter = 0;
+  
+  for(let i = 0; i < lowercaseString.length; i++) {
+      let currentLetter = lowercaseString.charAt(i);
+    if(currentLetter === 'a' || currentLetter === 'e' || currentLetter === 'i' || currentLetter === 'o' || currentLetter === 'u') {
+      vowelCounter++;
+    } else {
+      console.log('not a vowel!');
+    }
+  }
+  
+  return vowelCounter;
 }
 
 
