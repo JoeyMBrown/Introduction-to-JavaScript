@@ -320,8 +320,21 @@ Using the vowelCounter function below do the following:
 */
 
 
-function vowelCounter(/*add your code here*/) {
-    /*add your code here*/
+function vowelCounter(string) {
+  let lowercaseString = string.toLowerCase();
+ 
+ let vowelCounter = 0;
+ 
+ for(let i = 0; i < lowercaseString.length; i++) {
+     let currentLetter = lowercaseString.charAt(i);
+   if(currentLetter === 'a' || currentLetter === 'e' || currentLetter === 'i' || currentLetter === 'o' || currentLetter === 'u') {
+     vowelCounter++;
+   } else {
+     console.log('not a vowel!');
+   }
+ }
+ 
+ return vowelCounter;
 }
 
 
