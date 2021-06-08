@@ -20,11 +20,9 @@ Do the following:
 
 const votingAge = 18;
 
-if(votingAge >= 18) {
-  console.log('true');
+if (votingAge >= 18) {
+  console.log("true");
 }
-
-
 
 /*
 Task 1b - Values
@@ -40,14 +38,11 @@ let variable1 = 5;
 const variable2 = 7;
 
 if (variable1 < variable2) {
-    variable1 = variable2;
+  variable1 = variable2;
 } else {
-    console.log('variable1 is greater than variable2');
+  console.log("variable1 is greater than variable2");
 }
 console.log(variable1);
-
-
-
 
 /*
 Task 1c - Convert Strings to Numbers
@@ -60,10 +55,9 @@ Do the following:
    HINT: look up the Number method
 */
 
-const stringNumber = '1999';
+const stringNumber = "1999";
 
 console.log(parseInt(stringNumber));
-
 
 /*
 Task 1d - Multiply
@@ -73,12 +67,10 @@ Do the following:
    2. Receive the parameters: a and b
    3. Multiply a and b and return the answer
 */
-multiply(7,5);
-function multiply(a, b){
-    return a * b;
-  }
-
-
+multiply(7, 5);
+function multiply(a, b) {
+  return a * b;
+}
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -91,11 +83,9 @@ Do the following:
 */
 dogYears(5);
 
-function dogYears(humanYear){
-    return humanYear * 7;
+function dogYears(humanYear) {
+  return humanYear * 7;
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -122,46 +112,43 @@ Use the hungryDog function and feeding requirements below to do the following:
      7 - 12 months 4% of their body weight
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
+*/
 
 console.log(hungryDog(15, 1));
 
-function hungryDog(lbs, age){
-    const adultDog = age >= 1;
+function hungryDog(lbs, age) {
+  const adultDog = age >= 1;
 
-    const adultFeed = [.05, .04, .03, .02,]
-    const puppyFeed = [.1, .05, .04]
+  const adultFeed = [0.05, 0.04, 0.03, 0.02];
+  const puppyFeed = [0.1, 0.05, 0.04];
 
-    const smallDog = lbs < 5;
-    const mediumDog = 5 < lbs && lbs <= 10;
-    const largeDog = 10 < lbs && lbs <= 15;
+  const smallDog = lbs < 5;
+  const mediumDog = 5 < lbs && lbs <= 10;
+  const largeDog = 10 < lbs && lbs <= 15;
 
-    const infantDog = .16 <= age && age <= .33;
-    const babyDog = .33 < age && age <= .583;
+  const infantDog = 0.16 <= age && age <= 0.33;
+  const babyDog = 0.33 < age && age <= 0.583;
 
-    if (adultDog) {
-        if(smallDog) {
-          return lbs * adultFeed[0];
-        } else if(mediumDog) {
-          return lbs * adultFeed[1];
-        } else if(largeDog) {
-          return lbs * adultFeed[2];
-        } else {
-          return lbs * adultFeed[3];
-        }
+  if (adultDog) {
+    if (smallDog) {
+      return lbs * adultFeed[0];
+    } else if (mediumDog) {
+      return lbs * adultFeed[1];
+    } else if (largeDog) {
+      return lbs * adultFeed[2];
     } else {
-        if(infantDog) {
-          return lbs * puppyFeed[0];
-        } else if(babyDog) {
-          return lbs * puppyFeed[1];
-        } else {
-          return lbs * puppyFeed[2];
-        }
+      return lbs * adultFeed[3];
+    }
+  } else {
+    if (infantDog) {
+      return lbs * puppyFeed[0];
+    } else if (babyDog) {
+      return lbs * puppyFeed[1];
+    } else {
+      return lbs * puppyFeed[2];
     }
   }
-
-
-
+}
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -188,50 +175,45 @@ let computer = Math.floor(Math.random() * 3);
 
 //game('rock', computer);
 
-function game(user, computer){
-    const choices = ['rock', 'paper', 'scissors'];
-    let computerChoice = '';
+function game(user, computer) {
+  const choices = ["rock", "paper", "scissors"];
+  let computerChoice = "";
 
-      if(typeof computer === 'number') {
-        computerChoice = choices[computer];
+  if (typeof computer === "number") {
+    computerChoice = choices[computer];
+  } else {
+    computerChoice = computer;
+  }
+
+  if (user === computer) {
+    return "it's a tie";
+  } else {
+    if (computerChoice === "rock") {
+      if (user === "paper") {
+        return "you win!";
       } else {
-        computerChoice = computer;
+        return "you lose!";
       }
-
-      if(user === computer) {
-        return "it's a tie";
+    } else if (computerChoice === "paper") {
+      if (user === "rock") {
+        return "you lose!";
       } else {
-          if(computerChoice=== 'rock') {
-            if(user === 'paper') {
-            return "you win!";
-          } else {
-            return "you lose!";
-          }
-        } else if(computerChoice === 'paper') {
-          if(user === 'rock') {
-            return "you lose!";
-        } else {
-            return "you win!";
-          }
-        } else {
-          if(user === 'rock') {
-            return "you win!";
-        } else {
-            return "you lose!";
-          }
-        }
-
-
+        return "you win!";
       }
-
+    } else {
+      if (user === "rock") {
+        return "you win!";
+      } else {
+        return "you lose!";
+      }
+    }
+  }
 }
-  
-  
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
-//Metric Converter 
-//Task 5a - KM to Miles 
+//Metric Converter
+//Task 5a - KM to Miles
 /*
 Using the miles function below do the following:
   1. Receive a number of kilometers
@@ -239,11 +221,9 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(km){
-    return km * 0.621371;
-  }
-
-
+function miles(km) {
+  return km * 0.621371;
+}
 
 //Task 5b - Feet to CM
 /*
@@ -253,11 +233,9 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(cm){
-    return cm / 30.48;
-  }
- 
-
+function feet(cm) {
+  return cm / 30.48;
+}
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -269,14 +247,13 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(number){
-
-  for(number; number > 0; number--) {
-    return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${number - 1} bottles of soda on the wall`;
+function annoyingSong(number) {
+  for (number; number > 0; number--) {
+    return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${
+      number - 1
+    } bottles of soda on the wall`;
   }
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -292,24 +269,28 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
-  
-function grade(score){
-    const grades = ['you got an A', 'you got a B', 'you got a C', 'you got a D', 'you got an F'];
 
-    if(90 <= score) {
-      return grades[0];
-    } else if(80 <= score && score < 90) {
-      return grades[1];
-    } else if(70 <= score && score < 80) {
-      return grades[2];
-    } else if (60 <= score && score < 70) {
-      return grades[3];
-    } else {
-      return grades[4];
-    }
+function grade(score) {
+  const grades = [
+    "you got an A",
+    "you got a B",
+    "you got a C",
+    "you got a D",
+    "you got an F",
+  ];
+
+  if (90 <= score) {
+    return grades[0];
+  } else if (80 <= score && score < 90) {
+    return grades[1];
+  } else if (70 <= score && score < 80) {
+    return grades[2];
+  } else if (60 <= score && score < 70) {
+    return grades[3];
+  } else {
+    return grades[4];
   }
-  
-  
+}
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
@@ -323,40 +304,43 @@ Using the vowelCounter function below do the following:
   HINT - try looking up the .includes() method
 */
 
-
 function vowelCounter(string) {
-   let lowercaseString = string.toLowerCase();
-  
+  let lowercaseString = string.toLowerCase();
+
   let vowelCounter = 0;
-  
-  for(let i = 0; i < lowercaseString.length; i++) {
-      let currentLetter = lowercaseString.charAt(i);
-    if(currentLetter === 'a' || currentLetter === 'e' || currentLetter === 'i' || currentLetter === 'o' || currentLetter === 'u') {
+
+  for (let i = 0; i < lowercaseString.length; i++) {
+    let currentLetter = lowercaseString.charAt(i);
+    if (
+      currentLetter === "a" ||
+      currentLetter === "e" ||
+      currentLetter === "i" ||
+      currentLetter === "o" ||
+      currentLetter === "u"
+    ) {
       vowelCounter++;
     } else {
-      console.log('not a vowel!');
+      console.log("not a vowel!");
     }
   }
-  
+
   return vowelCounter;
 }
 
-
-
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-function foo(){
-    //console.log('its working');
-    return 'bar';
+function foo() {
+  //console.log('its working');
+  return "bar";
 }
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-export default{
-    foo,
-    multiply,
-    dogYears,
-    hungryDog,
-    game,
-    miles,
-    feet,
-    annoyingSong,
-    grade
-}
+export default {
+  foo,
+  multiply,
+  dogYears,
+  hungryDog,
+  game,
+  miles,
+  feet,
+  annoyingSong,
+  grade,
+};
